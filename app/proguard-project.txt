@@ -1,0 +1,256 @@
+##---------------Begin: proguard configuration common for all Android apps----------
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontskipnonpubliclibraryclassmembers
+-dontpreverify
+-dontoptimize
+-verbose
+-dontwarn
+-ignorewarnings
+-dump class_files.txt
+-printseeds seeds.txt
+-printusage unused.txt
+-printmapping mapping.txt
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+-keepattributes InnerClasses,LineNumberTable
+-keepattributes SourceFile, LineNumberTable
+
+-allowaccessmodification
+-keepattributes *Annotation*
+-renamesourcefileattribute SourceFile
+-repackageclasses ''
+-keepattributes SourceFile,LineNumberTable
+-keepattributes Signature
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+-dontnote com.android.vending.licensing.ILicensingService
+-keep public class com.google.vending.licensing.ILicensingService
+-keep public class * extends android.view.View
+-keep public class **.R$*
+
+# Explicitly preserve all serialization members. The Serializable interface
+# is only a marker interface, so it wouldn't save them.
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
+
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
+
+# Preserve all native method names and the names of their classes.
+-keepclasseswithmembers  class * {
+    native <methods>;
+}
+
+-keepclasseswithmembers  class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers  class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keep class com.google.** { *; }
+
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+
+# Preserve static fields of inner classes of R classes that might be accessed
+# through introspection.
+-keepclassmembers class **.R$* {
+  public static <fields>;
+}
+
+-keep class **.R$* {
+    *;
+}
+
+# Preserve the special static methods that are required in all enumeration classes.
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep public class * {
+    public protected *;
+}
+
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+##---------------End: proguard configuration common for all Android apps ----------
+-dontwarn com.umeng.**
+-dontwarn com.baidu.**
+-dontwarn pl.droidsonroids.gif.**
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}
+-keep class com.baidu.** { *; }
+-keep class com.baidu.location.**{*;}
+-keep class com.baidu.mapapi.map.** {*;}
+-keep class vi.com.gdi.bgl.android.**{*;}
+-keep class sun.misc.Unsafe { *; }
+-keep class com.lidroid.** { *; }
+-keep class * extends java.lang.annotation.Annotation { *; }
+-keep class com.sjjy.shophelper.data.bean.** { *; }
+-keep class com.google.gson.** {*;}
+-keep class com.google.** { *; }
+-keep class android.support.**{*;}
+-dontwarn android.support.v4.**
+-dontwarn android.support.**
+
+-keep class butterknife.** { *; }
+-dontwarn butterknife.internal.**
+-keep class **$$ViewBinder { *; }
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <fields>;
+}
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <methods>;
+}
+
+
+#友盟分享 混淆配置
+-dontshrink
+-dontwarn com.google.android.maps.**
+-dontwarn android.webkit.WebView
+-dontwarn com.umeng.**
+-dontwarn com.tencent.weibo.sdk.**
+-dontwarn com.facebook.**
+-keep public class javax.**
+-keep public class android.webkit.**
+-keep class android.support.**{*;}
+-dontwarn android.support.v4.**
+-dontwarn android.support.**
+-keep enum com.facebook.**
+-keepattributes Exceptions,InnerClasses,Signature
+-keepattributes *Annotation*
+-keepattributes SourceFile,LineNumberTable
+
+-keep public interface com.facebook.**
+-keep public interface com.tencent.**
+-keep public interface com.umeng.socialize.**
+-keep public interface com.umeng.socialize.sensor.**
+-keep public interface com.umeng.scrshot.**
+
+-keep public class com.umeng.socialize.* {*;}
+
+
+-keep class com.facebook.**
+-keep class com.facebook.** { *; }
+-keep class com.umeng.scrshot.**
+-keep public class com.tencent.** {*;}
+-keep class com.umeng.socialize.sensor.**
+-keep class com.umeng.socialize.handler.**
+-keep class com.umeng.socialize.handler.*
+-keep class com.umeng.weixin.handler.**
+-keep class com.umeng.weixin.handler.*
+-keep class com.umeng.qq.handler.**
+-keep class com.umeng.qq.handler.*
+-keep class UMMoreHandler{*;}
+-keep class com.tencent.mm.sdk.modelmsg.WXMediaMessage {*;}
+-keep class com.tencent.mm.sdk.modelmsg.** implements   com.tencent.mm.sdk.modelmsg.WXMediaMessage$IMediaObject {*;}
+-keep class im.yixin.sdk.api.YXMessage {*;}
+-keep class im.yixin.sdk.api.** implements im.yixin.sdk.api.YXMessage$YXMessageData{*;}
+-keep class com.tencent.mm.sdk.** {
+ *;
+}
+-dontwarn twitter4j.**
+-keep class twitter4j.** { *; }
+
+-keep class com.tencent.** {*;}
+-dontwarn com.tencent.**
+-keep public class com.umeng.com.umeng.soexample.R$*{
+public static final int *;
+}
+-keep public class com.linkedin.android.mobilesdk.R$*{
+public static final int *;
+    }
+-keepclassmembers enum * {
+public static **[] values();
+public static ** valueOf(java.lang.String);
+}
+
+-keep class com.tencent.open.TDialog$*
+-keep class com.tencent.open.TDialog$* {*;}
+-keep class com.tencent.open.PKDialog
+-keep class com.tencent.open.PKDialog {*;}
+-keep class com.tencent.open.PKDialog$*
+-keep class com.tencent.open.PKDialog$* {*;}
+-keep class  com.alipay.share.sdk.** {
+   *;
+}
+-keepnames class * implements android.os.Parcelable {
+public static final ** CREATOR;
+}
+
+-keep class com.linkedin.** { *; }
+-keepattributes Signature
+
+-dontwarn okio.**
+-dontwarn retrofit.**
+-keep class retrofit.** { *; }
+-keepclassmembers,allowobfuscation interface * {
+    @retrofit.http.** <methods>;
+}
+
+-dontwarn com.squareup.okhttp.**
+
+-keep class com.chad.library.adapter.** {
+   *;
+}
+
+-keep public class * extends com.chad.library.adapter.base.BaseQuickAdapter
+-keep public class * extends com.chad.library.adapter.base.BaseViewHolder
+-keepclassmembers  class **$** extends com.chad.library.adapter.base.BaseViewHolder {
+     <init>(...);
+}
+
+# mobsdk
+-dontwarn com.sina.**
+-keep class cn.sharesdk.**{*;}
+-keep class com.sina.**{*;}
+-keep class **.R$* {*;}
+-keep class **.R{*;}
+-keep class com.mob.**{*;}
+
+#webview与js交互需注意
+#保留annotation， 例如 @javascriptInterface 等 annotation
+-keepattributes *Annotation*
+
+#保留跟 javascript相关的属性
+-keepattributes JavascriptInterface
+
+#保留JavascriptInterface中的方法
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+}
+
+#这个根据自己的project来设置，这个类用来与js交互，所以这个类中的 字段 ，方法， 等尽量保持
+-keepclassmembers public class cn.leekai.phone.kailib.ui.views.MyWebView{
+   <fields>;
+   <methods>;
+   public *;
+}
+#这个类 必须保留，这个类在WVJBWebViewClient中传递数据，如果被混淆 会导致一些callback无法调用
+-keep class com.packgename.custom.WVJBWebViewClient$WVJBMessage
+#类中成员的变量名也不能混淆，这些变量名被作为json中的字段，不能改变。
+-keepclassmembers class cn.leekai.phone.kailib.ui.views.MyWebView$InJavaScriptLocalObj{
+    <fields>;
+}

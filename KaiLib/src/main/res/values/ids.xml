@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--关闭加载对话框-->
+    <item name="eventbus_dismiss_loading_dialog" type="id"/>
+    <!--展示加载对话框-->
+    <item name="eventbus_show_loading_dialog" type="id"/>
+</resources>

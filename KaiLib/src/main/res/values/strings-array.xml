@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="permissions">
+        <item>读取电话状态:访问电话状态</item>
+        <item>拨打电话:允许程序从非系统拨号器里输入电话号码</item>
+        <item>获取精确位置:通过GPS芯片接收卫星的定位信息,定位精度准确</item>
+        <item>获取粗略位置:通过WiFi或移动基站的方式获取用户错略的经纬度信息,定位精度不太准确</item>
+        <item>读取外部存储:允许程序读取外部存储,如SD卡上读取文件</item>
+        <item>写入外部存储:允许程序写入外部存储,如SD卡上写文件</item>
+    </string-array>
+</resources>

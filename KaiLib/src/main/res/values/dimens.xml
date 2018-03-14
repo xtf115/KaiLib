@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 字体大小设置的dimens值（text_数字）数字表示的1280*720下的像素值 -->
+    <dimen name="text_72">36sp</dimen>
+    <dimen name="text_60">30sp</dimen>
+    <dimen name="text_42">21sp</dimen>
+    <dimen name="text_40">20sp</dimen>
+    <dimen name="text_38">19sp</dimen>
+    <dimen name="text_36">18sp</dimen>
+    <dimen name="text_34">17sp</dimen>
+    <dimen name="text_32">16sp</dimen>
+    <dimen name="text_30">15sp</dimen>
+    <dimen name="text_28">14sp</dimen>
+    <dimen name="text_26">13sp</dimen>
+    <dimen name="text_24">12sp</dimen>
+    <dimen name="text_22">11sp</dimen>
+    <dimen name="text_20">10sp</dimen>
+    <dimen name="text_18">9sp</dimen>
+    <dimen name="text_10">5sp</dimen>
+</resources>

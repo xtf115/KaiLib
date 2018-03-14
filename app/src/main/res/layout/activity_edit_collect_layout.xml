@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/x20">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="标题"
+        android:textSize="@dimen/text_26"
+        android:textColor="@color/black"/>
+    <!-- 标题 -->
+    <TextView
+        android:id="@+id/edit_collect_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:paddingLeft="@dimen/x10"
+        android:paddingRight="@dimen/x10"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_28"
+        android:layout_marginTop="@dimen/y20"/>
+    <!-- 重命名 -->
+    <TextView
+        android:id="@+id/edit_collect_tag1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设置新标题"
+        android:textSize="@dimen/text_26"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/y20"
+        android:visibility="gone"/>
+    <!-- 设置新标题 -->
+    <EditText
+        android:id="@+id/edit_collect_retitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:paddingLeft="@dimen/x10"
+        android:paddingRight="@dimen/x10"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_28"
+        android:layout_marginTop="@dimen/y20"
+        android:visibility="gone"/>
+    <!-- 链接 -->
+
+</LinearLayout>

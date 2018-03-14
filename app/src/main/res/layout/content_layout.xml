@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_top_content"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- 公共标题栏 -->
+    <RelativeLayout
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y114"
+        android:background="@color/lightblack">
+        <!-- 左侧主标题名称 -->
+        <TextView
+            android:id="@+id/titlebar_homename"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/app_name"
+            android:textSize="@dimen/text_32"
+            android:textColor="@color/white"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginLeft="@dimen/x30"/>
+        <!-- 左侧按钮 -->
+        <ImageButton
+            android:id="@+id/titlebar_backbtn"
+            android:layout_width="@dimen/x114"
+            android:layout_height="match_parent"
+            android:src="@drawable/icon_back"
+            android:background="@drawable/button_title_bg"
+            android:visibility="gone"/>
+        <!-- 左侧标题名称 -->
+        <TextView
+            android:id="@+id/titlebar_backname"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/app_name"
+            android:textSize="@dimen/text_32"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:gravity="center_vertical|left"
+            android:layout_toRightOf="@id/titlebar_backbtn"
+            android:layout_toLeftOf="@id/titlebar_right_btnbox"
+            android:visibility="gone"/>
+        <LinearLayout
+            android:id="@+id/titlebar_right_btnbox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true">
+            <!-- 右侧图片操作按钮 -->
+            <ImageButton
+                android:id="@+id/titlebar_right_imgbtn"
+                android:layout_width="@dimen/x114"
+                android:layout_height="match_parent"
+                android:paddingRight="@dimen/x30"
+                android:paddingLeft="@dimen/x30"
+                android:background="@drawable/button_title_bg"
+                android:visibility="gone"/>
+            <!-- 右侧文字操作按钮 -->
+            <TextView
+                android:id="@+id/titlebar_right_txtbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/text_28"
+                android:textColor="@color/white"
+                android:paddingLeft="@dimen/x30"
+                android:paddingRight="@dimen/x30"
+                android:background="@drawable/button_title_bg"
+                android:gravity="center_vertical"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <!-- 公共标题下方的内容容器 -->
+    <FrameLayout
+        android:id="@+id/layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+    </FrameLayout>
+</LinearLayout>

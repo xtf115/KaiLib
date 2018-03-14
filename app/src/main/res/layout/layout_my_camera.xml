@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <SurfaceView
+        android:id="@+id/preview_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <!-- 定制扫描框样式 -->
+    <com.uuzuche.lib_zxing.view.ViewfinderView
+        android:id="@+id/viewfinder_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:inner_corner_color="@color/white"
+        app:inner_corner_length="@dimen/x50"
+        app:inner_corner_width="@dimen/x6"
+        app:inner_width="@dimen/x500"
+        app:inner_height="@dimen/x500"
+        app:inner_margintop="@dimen/y250"
+        app:inner_scan_bitmap="@drawable/scan_image"
+        app:inner_scan_iscircle="false"
+        app:inner_scan_speed="0"/>
+    <FrameLayout
+        android:id="@+id/scan_image_box"
+        android:layout_width="@dimen/x500"
+        android:layout_height="@dimen/x500"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/y260">
+        <ImageView
+            android:id="@+id/scan_image"
+            android:layout_width="@dimen/x480"
+            android:layout_height="wrap_content"
+            android:src="@drawable/scan_line"
+            android:layout_gravity="center_horizontal"/>
+    </FrameLayout>
+    <!-- 提示信息 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_scan_hint"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_28"
+        android:includeFontPadding="false"
+        android:background="@color/transparent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/y30"
+        android:layout_below="@id/scan_image_box"/>
+</RelativeLayout>

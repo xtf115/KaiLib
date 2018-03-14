@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/popupMenuTv"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y120"
+        android:minWidth="@dimen/x300"
+        android:textSize="@dimen/text_28"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20"
+        android:background="@color/white"/>
+</FrameLayout>

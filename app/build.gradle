@@ -1,0 +1,103 @@
+apply plugin: 'com.android.application'
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':KaiLib')
+    //butterknife
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+}
+
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        applicationId "cn.leekai.phone.kaidroid"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0.0"
+
+        ndk {
+            abiFilters "armeabi"//, "armeabi-v7a", "arm64-v8a",x86_64,x86,mips
+        }
+
+        // dex突破65535的限制
+        multiDexEnabled true
+    }
+
+    sourceSets{
+        main {
+            //jni库的调用会到资源文件夹下libs里面找so文件
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //签名
+    signingConfigs {
+        debug {
+            // No debug config
+        }
+
+        release {
+            storeFile file("./kaidroid.keystore")
+            storePassword "kaidroid1985"
+            keyAlias "kaidroid"
+            keyPassword "kaidroid1985"
+            //v2SigningEnabled false
+        }
+    }
+
+    buildTypes {
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+
+            minifyEnabled true
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+
+            //配置单个文件这样
+            signingConfig signingConfigs.release
+            //开启混淆
+            proguardFiles 'proguard-project.txt'
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            if (variant.buildType.name == "debug") {
+                outputFileName = "kai_project_${defaultConfig.versionName}_${releaseTime()}_debug.apk"
+            } else {
+                outputFileName = "kai_project_${defaultConfig.versionName}_${releaseTime()}.apk"
+            }
+        }
+    }
+}
+
+static def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
